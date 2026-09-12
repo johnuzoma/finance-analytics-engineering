@@ -1,0 +1,26 @@
+name: finance_analytics_engineering
+
+profile: finance_AE
+
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  # Builds seeds into '<your_schema_name>_raw'
+  finance_analytics_engineering:
+    +schema: seeds
+
+models:
+  finance_analytics_engineering:
+    +static_analysis: strict
+
+    2_silver:
+      +materialized: table
+      +schema: 2_silver
+    3_gold:
+      +materialized: table
+      +schema: 3_gold
