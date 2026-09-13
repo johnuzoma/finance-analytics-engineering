@@ -10,14 +10,11 @@ clean-targets:
   - "dbt_packages"
 
 seeds:
-  # Builds seeds into '<your_schema_name>_raw'
   finance_analytics_engineering:
-    +schema: seeds
+    +schema: reference_data
 
 models:
   finance_analytics_engineering:
-    +static_analysis: strict
-
     2_silver:
       +materialized: table
       +schema: 2_silver

@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: 1_bronze
+    database: finance
+    schema: 1_bronze
+    tables:
+      - name: raw_bal_sheet
+        data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              arguments:
+                combination_of_columns:
+                  - date
+                  - symbol

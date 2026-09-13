@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: transformed_bal_sheet
+    description: ""
+    data_tests:
+          - dbt_utils.unique_combination_of_columns:
+              arguments:
+                combination_of_columns:
+                  - period_end_date
+                  - symbol
+                  - metric
+    columns:
+      - name: period_end_date
+        description: ""
+        data_tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: "<= current_date()"
+
+      - name: period_val
+        description: ""
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['Q1', 'Q2', 'Q3', 'Q4']
+
+      - name: fiscal_year
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: symbol
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: metric
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: metric_val
+        description: ""
+        data_tests:
+          - not_null
+
+      - name: class
+        description: ""
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['asset', 'liability', 'equity', 'derived']
