@@ -1,9 +1,9 @@
 SELECT
     period_end_date,
-    period_val,
+    period_value,
     fiscal_year,
     symbol,
     metric,
-    metric_val,
+    metric_value,
     class
 FROM {{ ref('transformed_bal_sheet') }}

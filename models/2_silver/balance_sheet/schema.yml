@@ -4,12 +4,12 @@ models:
   - name: transformed_bal_sheet
     description: ""
     data_tests:
-          - dbt_utils.unique_combination_of_columns:
-              arguments:
-                combination_of_columns:
-                  - period_end_date
-                  - symbol
-                  - metric
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - period_end_date
+              - symbol
+              - metric
     columns:
       - name: period_end_date
         description: ""
@@ -19,7 +19,7 @@ models:
               arguments:
                 expression: "<= current_date()"
 
-      - name: period_val
+      - name: period_value
         description: ""
         data_tests:
           - not_null
@@ -42,7 +42,7 @@ models:
         data_tests:
           - not_null
 
-      - name: metric_val
+      - name: metric_value
         description: ""
         data_tests:
           - not_null
@@ -53,4 +53,4 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['asset', 'liability', 'equity', 'derived']
+                values: ['Asset', 'Liability', 'Equity', 'Derived']

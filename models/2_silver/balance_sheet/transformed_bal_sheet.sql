@@ -15,11 +15,11 @@ WITH unpivoted AS (
 classified AS (
     SELECT
         CAST(u.date AS DATE) AS period_end_date,
-        u.period AS period_val,
+        u.period AS period_value,
         u.fiscalYear AS fiscal_year,
         u.symbol,
         LOWER(REGEXP_REPLACE(u.metric, '([a-z0-9])([A-Z])', '$1_$2')) AS metric,
-        u.value AS metric_val,
+        u.value AS metric_value,
         COALESCE(c.class, 'Unclassified') AS class
     FROM unpivoted u
     LEFT JOIN {{ ref('bal_sheet_metric_classification') }} c 

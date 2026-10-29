@@ -20,7 +20,7 @@ inventory,Asset
 longTermDebt,Liability
 longTermInvestments,Asset
 minorityInterest,Equity
-netDebt,derived
+netDebt,Derived
 netReceivables,Asset
 otherAssets,Asset
 otherCurrentAssets,Asset
@@ -46,7 +46,7 @@ totalDebt,Liability
 totalEquity,Equity
 totalInvestments,Asset
 totalLiabilities,Liability
-totalLiabilitiesAndTotalEquity,derived
+totalLiabilitiesAndTotalEquity,Derived
 totalNonCurrentAssets,Asset
 totalNonCurrentLiabilities,Liability
 totalPayables,Liability
